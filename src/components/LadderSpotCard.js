@@ -1,9 +1,9 @@
 import React from 'react'
 
-const LadderSpotCard = () => {
+const LadderSpotCard = (props) => {
   return (
-    <div className="spot-card">
-      <h2>Spot Card</h2>
+    <div className="spot-card" key={props.player.id}>
+      <h2>{props.player.first_name}</h2>
     </div>
   )
 }

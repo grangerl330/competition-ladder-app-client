@@ -11,11 +11,24 @@ class Ladder extends Component {
     }
   }
 
+  componentDidMount(){
+    fetch('/players?ladderId=1')
+    .then(response => response.json())
+    .then(data => this.setState({players: data}))
+  }
+
+  renderSpotCards = () => {
+    const spotCards = this.state.players.map(player =>
+      <LadderSpotCard player={player} key={player.id} />
+    )
+    return spotCards
+  }
+
   render(){
     return (
       <div className="ladder">
         <h1>Virtual Club Ladder</h1>
-        <LadderSpotCard />
+        {this.renderSpotCards()}
       </div>
     )
   }

@@ -1,11 +1,11 @@
 import React from 'react';
-import Ladder from './components/Ladder'
+import Home from './components/Home'
 import './App.css';
 
 function App() {
   return (
     <div className="App">
-      <Ladder />
+      <Home />
     </div>
   );
 }

@@ -27,7 +27,7 @@ class Ladder extends Component {
   render(){
     return (
       <div className="ladder">
-        <h1>Virtual Club Ladder</h1>
+        <h1>Ladder Name</h1>
         {this.renderSpotCards()}
       </div>
     )

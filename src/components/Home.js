@@ -29,7 +29,6 @@ class Home extends Component {
   render(){
     return (
       <div className="home">
-        <h1>Virtual Ladder App</h1>
         <h2>Your Ladders</h2>
         {this.laddersLinks()}
       </div>

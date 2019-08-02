@@ -28,7 +28,6 @@ class Ladder extends Component {
   render(){
     return (
       <div className="ladder">
-        <NavLink to="/home">Home</NavLink>
         <h1>Ladder Name</h1>
         {this.renderSpotCards()}
       </div>

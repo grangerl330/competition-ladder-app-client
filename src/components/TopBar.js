@@ -9,7 +9,10 @@ const TopBar = () => {
           Virtual Ladder App
         </div>
       </div>
-      <p><NavLink to='/home' className='top-bar-link'>Home</NavLink></p>
+      <p>
+        <NavLink to='/home' className='top-bar-link'>Home</NavLink>
+        <NavLink to='/profile' className='top-bar-link'>Profile</NavLink>
+      </p>
     </div>
   )
 }

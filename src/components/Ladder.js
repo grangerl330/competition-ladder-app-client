@@ -4,8 +4,8 @@ import { NavLink, Route } from 'react-router-dom'
 
 class Ladder extends Component {
 
-  constructor(){
-    super()
+  constructor(props){
+    super(props)
 
     this.state = {
       players: []
@@ -13,7 +13,7 @@ class Ladder extends Component {
   }
 
   componentDidMount(){
-    fetch('/players?ladderId=1')
+    fetch(`/players?ladderId=${this.props.ladderId}`)
     .then(response => response.json())
     .then(data => this.setState({players: data}))
   }

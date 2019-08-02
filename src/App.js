@@ -10,7 +10,7 @@ function App() {
     <div className="App">
       <TopBar />
       <Route exact path='/home' render={() => <Home />}/>
-      <Route exact path='/ladders/:ladderId' render={() => <Ladder />}/>
+      <Route exact path='/ladders/:ladderId' render={(urlData) => <Ladder ladderId={urlData.match.params.ladderId}/>}/>
     </div>
   );
 }

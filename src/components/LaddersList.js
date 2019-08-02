@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { NavLink, Route } from 'react-router-dom'
 
-class Home extends Component {
+class LaddersList extends Component {
   constructor(){
     super()
 
@@ -36,4 +36,4 @@ class Home extends Component {
   }
 }
 
-export default Home
+export default LaddersList

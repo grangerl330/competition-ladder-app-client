@@ -2,24 +2,28 @@
   margin: 0;
 }
 
+p {
+  margin: 10px;
+}
+
 .App {
   text-align: center;
 }
 
 .topbar {
-  background: grey;
+  background: #303030;
   color: white;
   float: left;
   width: 100vw;
   height: 5vh;
   padding: 20px 0;
-  text-align: center;
+  text-align: left;
 }
 
 .topbar-logo {
   float: left;
   font-size: 20px;
-  margin-left: 10px;
+  margin-left: 1vw;
 }
 
 .topbar-logo-text {
@@ -27,7 +31,11 @@
 }
 
 .top-bar-link {
-  margin: 5px;
+  margin-left: 15vw;
   color: white;
   display: inline;
+}
+
+.spot-card {
+  margin: 10px;
 }

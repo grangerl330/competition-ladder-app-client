@@ -18,8 +18,8 @@ class Home extends Component {
 
   laddersLinks = () => {
     const laddersLinks = this.state.ladders.map(ladder =>
-      <div key={ladder.id}>
-        <p><NavLink to={`/ladders/${ladder.id}`}>{ladder.title}</NavLink></p>
+      <div key={ladder.id} className="ladder-link">
+        <NavLink to={`/ladders/${ladder.id}`}>{ladder.title}</NavLink>
       </div>
     )
 

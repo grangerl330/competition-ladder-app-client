@@ -12,11 +12,7 @@
   text-align: center;
   height: 93vh;
   width: 100vw;
-  float: left
-}
-
-.home {
-  margin-top: 1vh;
+  float: left;
 }
 
 .topbar-logo {
@@ -32,6 +28,22 @@
   margin-right: 1vw;
   color: white;
   display: inline;
+}
+
+.home {
+  margin-top: 1vh;
+}
+
+.ladder-link {
+  background: #C0C0C0;
+  color: #383838;
+  width: 10vw;
+  padding: 3vh;
+  margin-bottom: 2vh;
+  text-align: center;
+  position: relative;
+  left: 43.5%;
+  border: 1px solid #888;
 }
 
 .ladder {

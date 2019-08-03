@@ -8,26 +8,22 @@
   text-align: center;
 }
 
-.main-content {
-  text-align: center;
-  height: 93vh;
-  width: 100vw;
-  float: left;
-}
-
-.topbar-logo {
-  float: center;
-  font-size: 20px;
-}
-
-.topbar-logo-text {
-  display: inline;
+.topbar-text {
+  margin-top: -1vh;
+  font-size: 30px;
 }
 
 .top-bar-link {
   margin-right: 1vw;
   color: white;
   display: inline;
+}
+
+.main-content {
+  text-align: center;
+  height: 93vh;
+  width: 100vw;
+  float: left;
 }
 
 .ladders-list {

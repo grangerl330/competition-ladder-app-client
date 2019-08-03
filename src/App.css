@@ -28,6 +28,7 @@
 
 .ladders-list {
   margin-top: 1vh;
+  color: #383838;
 }
 
 .ladder-link-box {
@@ -43,6 +44,7 @@
 
 .ladder-link {
   color: #383838;
+  text-decoration: none;
 }
 
 .ladder {

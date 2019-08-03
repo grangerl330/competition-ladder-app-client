@@ -18,8 +18,8 @@ class LaddersList extends Component {
 
   laddersLinks = () => {
     const laddersLinks = this.state.ladders.map(ladder =>
-      <div key={ladder.id} className="ladder-link">
-        <NavLink to={`/ladders/${ladder.id}`}>{ladder.title}</NavLink>
+      <div key={ladder.id} className="ladder-link-box">
+        <NavLink to={`/ladders/${ladder.id}`} className='ladder-link'>{ladder.title}</NavLink>
       </div>
     )
 
@@ -28,7 +28,7 @@ class LaddersList extends Component {
 
   render(){
     return (
-      <div className="home">
+      <div className="ladders-list">
         <h2>Your Ladders</h2>
         {this.laddersLinks()}
       </div>

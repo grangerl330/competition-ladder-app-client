@@ -30,20 +30,23 @@
   display: inline;
 }
 
-.home {
+.ladders-list {
   margin-top: 1vh;
 }
 
-.ladder-link {
+.ladder-link-box {
   background: #C0C0C0;
-  color: #383838;
   width: 10vw;
   padding: 3vh;
   margin-bottom: 2vh;
   text-align: center;
   position: relative;
-  left: 43.5%;
+  left: 43%;
   border: 1px solid #888;
+}
+
+.ladder-link {
+  color: #383838;
 }
 
 .ladder {

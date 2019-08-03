@@ -5,7 +5,6 @@ import Ladder from './Ladder'
 
 class MainContent extends Component {
 
-
   render(){
     return(
       <div className='main-content'>

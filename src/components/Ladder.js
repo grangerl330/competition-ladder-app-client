@@ -8,14 +8,15 @@ class Ladder extends Component {
     super(props)
 
     this.state = {
+      ladder: [],
       players: []
     }
   }
 
   componentDidMount(){
-    fetch(`/players?ladderId=${this.props.ladderId}`)
+    fetch(`/ladders/${this.props.ladderId}`)
     .then(response => response.json())
-    .then(data => this.setState({players: data}))
+    .then(ladder => this.setState({ladder: ladder, players: ladder.players}))
   }
 
   renderSpotCards = () => {
@@ -29,9 +30,10 @@ class Ladder extends Component {
     return (
       <div className="ladder">
         <div className="ladder-title">
-          Ladder Name
+          {this.state.ladder.title}
+          {this.renderSpotCards()}
         </div>
-        {this.renderSpotCards()}
+
       </div>
     )
   }

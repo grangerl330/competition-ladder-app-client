@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { NavLink, Route } from 'react-router-dom'
+import { Route } from 'react-router-dom'
 import LaddersList from './LaddersList'
 import Ladder from './Ladder'
 

@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { NavLink, Route } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 
 class LaddersList extends Component {
   constructor(){
@@ -18,7 +18,7 @@ class LaddersList extends Component {
 
   laddersLinks = () => {
     const sortedLadders = this.state.ladders.sort(function(a,b) {return a.id - b.id})
-    const laddersLinks = this.state.ladders.map(ladder =>
+    const laddersLinks = sortedLadders.map(ladder =>
       <div key={ladder.id} className="ladder-link-box">
         <NavLink to={`/ladders/${ladder.id}`} className='ladder-link'>{ladder.title}</NavLink>
       </div>

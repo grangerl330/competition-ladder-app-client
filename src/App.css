@@ -68,8 +68,10 @@
   font-weight: bold;
 }
 
-.spot-card {
-  margin: 1vh;
+.ladder-spot {
+  margin: 3vh;
+  background-color: green;
+  padding: 5px;
   color: #383838;
   font-size: 17px;
 }

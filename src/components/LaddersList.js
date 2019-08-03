@@ -17,6 +17,7 @@ class LaddersList extends Component {
   }
 
   laddersLinks = () => {
+    const sortedLadders = this.state.ladders.sort(function(a,b) {return a.id - b.id})
     const laddersLinks = this.state.ladders.map(ladder =>
       <div key={ladder.id} className="ladder-link-box">
         <NavLink to={`/ladders/${ladder.id}`} className='ladder-link'>{ladder.title}</NavLink>

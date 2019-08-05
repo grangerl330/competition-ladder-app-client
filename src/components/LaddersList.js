@@ -34,7 +34,7 @@ class LaddersList extends Component {
         <h2>Your Ladders</h2>
         {this.laddersLinks()}
         <NavLink to='/newladder'>
-          <img src={addIcon} />
+          <img src={addIcon} alt="Add Ladder"/>
         </NavLink>
       </div>
     )

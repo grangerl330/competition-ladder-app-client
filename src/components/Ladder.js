@@ -81,7 +81,7 @@ class Ladder extends Component {
     const ladderSpotsHTML = this.state.ladderSpots.map(ladderSpot =>
       <div key={ladderSpot.player.id} className="ladder-spot" onDragOver={(e)=>this.onDragOver(e)} onDrop={(e)=>{this.onDrop(e, ladderSpot.player)}}>
         <div key={ladderSpot.player.id} className="ladder-player-display" draggable onDragStart={event => this.onDragStart(event, ladderSpot.player)}>
-          <h3>{ladderSpot.spot}. {ladderSpot.player.first_name} {ladderSpot.player.last_name}</h3>
+          {ladderSpot.spot}. {ladderSpot.player.first_name} {ladderSpot.player.last_name}
         </div>
       </div>
     )

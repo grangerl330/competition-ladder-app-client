@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { NavLink } from 'react-router-dom'
+import addIcon from '../images/AddIcon.png'
 
 class LaddersList extends Component {
   constructor(){
@@ -32,6 +33,9 @@ class LaddersList extends Component {
       <div className="ladders-list">
         <h2>Your Ladders</h2>
         {this.laddersLinks()}
+        <NavLink to='/ladders/add'>
+          <img src={addIcon} />
+        </NavLink>
       </div>
     )
   }

@@ -3,13 +3,13 @@ import { NavLink } from 'react-router-dom'
 import { withRouter } from 'react-router';
 
 class LadderForm extends Component {
-  constructor(){
-    super()
+  constructor(props){
+    super(props)
 
     this.state = {
       title: "",
       size: "",
-      user_id: ""
+      user_id: props.currentUser.id
     }
   }
 
@@ -39,7 +39,7 @@ class LadderForm extends Component {
     fetch('/ladders', request)
     .then(response => response.json())
     .then(ladder => console.log(ladder))
-      
+
     this.props.history.push('/ladders')
   }
 
@@ -52,10 +52,6 @@ class LadderForm extends Component {
           <p>
             <label>Title:</label>
             <input type="text" name="title" value={this.state.title} onChange={this.handleOnChange}/>
-          </p>
-          <p>
-            <label>Size:</label>
-            <input type="number" name="size" value={this.state.size} onChange={this.handleOnChange}/>
           </p>
           <button>Add</button>
         </form>

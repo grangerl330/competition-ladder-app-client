@@ -26,7 +26,9 @@ class Ladder extends Component {
   }
 
   setLadderSpots = () => {
-    this.state.players.forEach(player => {
+    const sortedPlayers = this.state.players.sort(function(a,b) {return a.ladder_spot - b.ladder_spot})
+
+    sortedPlayers.forEach(player => {
       this.setState({
         ladderSpots: [
           ...this.state.ladderSpots, {
@@ -75,6 +77,7 @@ class Ladder extends Component {
     this.renderLadderSpots()
     console.log(this.state.ladderSpots[0].spot, this.state.ladderSpots[0].player.first_name, this.state.ladderSpots[1].spot, this.state.ladderSpots[1].player.first_name)
 
+    this.saveLadderInDatabase()
   }
 
   renderLadderSpots = () => {
@@ -89,6 +92,22 @@ class Ladder extends Component {
     this.setState({
       renderedLadderSpots: ladderSpotsHTML
     })
+  }
+
+  saveLadderInDatabase = () => {
+    const request = {
+      method: 'PATCH',
+      body: JSON.stringify({
+        ladderSpots: this.state.ladderSpots
+      }),
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    }
+
+    fetch('/players', request)
+    .then(response => response.json())
+    .then(data => console.log(data.notice))
   }
 
   render(){

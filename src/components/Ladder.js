@@ -141,7 +141,7 @@ class Ladder extends Component {
             <NavLink to={`/ladders/${this.state.ladder.id}/edit`}>
               <img src={editPencil} alt="Edit Ladder"/>
             </NavLink>
-            <img src={deleteBin} alt="Delete Ladder" onClick={this.deleteLadder} className="delete"/>
+            <img src={deleteBin} alt="Delete Ladder" onClick={() => { if(window.confirm('Are you sure you want to delete this ladder?')) this.deleteLadder()}} className="delete"/>
           </div>
         </div>
         {this.state.renderedLadderSpots}

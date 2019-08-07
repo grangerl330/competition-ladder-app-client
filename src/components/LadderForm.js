@@ -37,9 +37,11 @@ class LadderForm extends Component {
 
     fetch('/ladders', request)
     .then(response => response.json())
-    .then(ladder => console.log(ladder))
+    .then(ladder => {
+      console.log(ladder)
+      this.props.history.push(`/ladders/${ladder.id}`)
+    })
 
-    this.props.history.push('/ladders')
   }
 
   render(){

@@ -84,6 +84,11 @@
   margin-bottom: 2vh;
 }
 
+.ladder-icons {
+  margin-top: -2vh;
+  margin-bottom: 1vh;
+}
+
 .close-window-button {
   float: right;
   font-size: 18px;

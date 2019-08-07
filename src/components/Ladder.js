@@ -1,4 +1,8 @@
 import React, { Component } from 'react'
+import { NavLink } from 'react-router-dom'
+import { withRouter } from 'react-router';
+import deleteBin from '../images/delete-bin.png'
+import editPencil from '../images/edit-pencil.png'
 
 class Ladder extends Component {
 
@@ -110,11 +114,35 @@ class Ladder extends Component {
     .then(data => console.log(data.notice))
   }
 
+  deleteLadder = () => {
+    const request = {
+      method: 'DELETE',
+      body: JSON.stringify({
+        ladderId: this.state.ladder.id
+      }),
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    }
+
+    fetch(`/ladders/${this.state.ladder.id}`, request)
+    .then(response => response.json())
+    .then(data => console.log(data.notice))
+
+    this.props.history.push('/ladders')
+  }
+
   render(){
     return (
       <div className="ladder">
         <div className="ladder-title">
           {this.state.ladder.title}
+        </div>
+        <div className="ladder-icons">
+          <NavLink to={`/ladders/${this.state.ladder.id}/edit`}>
+            <img src={editPencil} alt="Edit Ladder"/>
+          </NavLink>
+          <img src={deleteBin} alt="Delete Ladder" onClick={this.deleteLadder}/>
         </div>
         {this.state.renderedLadderSpots}
       </div>
@@ -122,4 +150,4 @@ class Ladder extends Component {
   }
 }
 
-export default Ladder
+export default withRouter(Ladder)

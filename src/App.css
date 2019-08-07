@@ -13,8 +13,13 @@
   font-size: 30px;
 }
 
-.top-bar-link {
-  margin-right: 1vw;
+.topbar-link {
+  margin-top: 2vh;
+  margin-left: 6vw;
+  color: white;
+}
+
+.white-link {
   color: white;
   display: inline;
 }

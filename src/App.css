@@ -85,8 +85,13 @@
 }
 
 .ladder-icons {
-  margin-top: -2vh;
-  margin-bottom: 1vh;
+  margin-left: 1vw;
+  display: inline;
+  position: absolute;
+}
+
+.delete {
+  cursor: pointer;
 }
 
 .close-window-button {

@@ -137,12 +137,12 @@ class Ladder extends Component {
       <div className="ladder">
         <div className="ladder-title">
           {this.state.ladder.title}
-        </div>
-        <div className="ladder-icons">
-          <NavLink to={`/ladders/${this.state.ladder.id}/edit`}>
-            <img src={editPencil} alt="Edit Ladder"/>
-          </NavLink>
-          <img src={deleteBin} alt="Delete Ladder" onClick={this.deleteLadder}/>
+          <div className="ladder-icons">
+            <NavLink to={`/ladders/${this.state.ladder.id}/edit`}>
+              <img src={editPencil} alt="Edit Ladder"/>
+            </NavLink>
+            <img src={deleteBin} alt="Delete Ladder" onClick={this.deleteLadder} className="delete"/>
+          </div>
         </div>
         {this.state.renderedLadderSpots}
       </div>

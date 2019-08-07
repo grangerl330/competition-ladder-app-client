@@ -9,7 +9,9 @@ class LadderForm extends Component {
 
     this.state = {
       title: "",
-      user_id: props.currentUser.id
+      user_id: props.currentUser.id,
+      numberOfPlayerInputs: 1,
+      player1: ""
     }
   }
 
@@ -42,7 +44,36 @@ class LadderForm extends Component {
       console.log(ladder)
       this.props.history.push(`/ladders/${ladder.id}`)
     })
+  }
 
+  addPlayerInput = (event) => {
+    event.preventDefault()
+    var newPlayer = `player${this.state.numberOfPlayerInputs+1}`
+
+    this.setState({[newPlayer]: ""})
+    this.setState({numberOfPlayerInputs: this.state.numberOfPlayerInputs + 1})
+  }
+
+  removePlayerInput = (event) => {
+    event.preventDefault()
+
+    this.setState({numberOfPlayerInputs: this.state.numberOfPlayerInputs - 1})
+  }
+
+  renderPlayerInputs = () => {
+    var number = this.state.numberOfPlayerInputs
+    var renderedInputs = []
+
+    for(var i=0; i < number; i++) {
+      renderedInputs.push(
+        <p key={i+1} >
+          <label>Player {i+1}:</label>
+          <input type="text" name={`player${i+1}`} value={this.state[`player${i+1}`]} onChange={this.handleOnChange}/>
+        </p>
+      )
+    }
+
+    return renderedInputs
   }
 
   render(){
@@ -57,7 +88,12 @@ class LadderForm extends Component {
             <label>Title:</label>
             <input type="text" name="title" value={this.state.title} onChange={this.handleOnChange}/>
           </p>
-          <button>Add</button>
+          {this.renderPlayerInputs()}
+          <button onClick={this.removePlayerInput}>Remove Player Slot</button>
+          <button onClick={this.addPlayerInput}>Add Player Slot</button>
+          <p>
+            <button>Save Ladder</button>
+          </p>
         </form>
       </div>
     )

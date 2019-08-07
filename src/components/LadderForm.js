@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { NavLink } from 'react-router-dom'
 import { withRouter } from 'react-router';
+import closeWindow from '../images/close-window.png'
 
 class LadderForm extends Component {
   constructor(props){
@@ -46,8 +47,10 @@ class LadderForm extends Component {
 
   render(){
     return (
-      <div className="ladder-form">
-        <NavLink className="close-window-button" to='/ladders'>x</NavLink>
+      <div className="ladder">
+        <NavLink className="close-window-button" to='/ladders'>
+          <img src={closeWindow} alt="Close Window"/>
+        </NavLink>
         <h2>Add A New Ladder</h2>
         <form onSubmit={this.handleOnSubmit}>
           <p>

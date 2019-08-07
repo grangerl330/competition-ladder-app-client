@@ -95,9 +95,10 @@
 }
 
 .close-window-button {
-  float: right;
   font-size: 18px;
-  margin-top: -20px;
+  margin-top: -2vh;
+  position: absolute;
+  left: 90%;
 }
 
 .username-display {

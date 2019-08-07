@@ -61,12 +61,24 @@ class App extends Component {
     })
   }
 
+  logout = () => {
+    fetch('/logout', {
+      credentials: 'include',
+      method: 'DELETE'
+    })
+    .then(response => response.json())
+    .then(response => {
+      console.log(response.notice)
+      this.setState({currentUser: ""})
+    })
+  }
+
 
   render(){
     if(this.state.currentUser !== ""){
       return (
         <div className="App">
-          <TopBar />
+          <TopBar currentUser={this.state.currentUser} logout={this.logout}/>
           <MainContent currentUser={this.state.currentUser}/>
         </div>
       )

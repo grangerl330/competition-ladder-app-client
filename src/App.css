@@ -84,3 +84,19 @@
   font-size: 18px;
   margin-top: -20px;
 }
+
+.username-display {
+  float: right;
+  color: white;
+  margin-right: 1vw;
+  margin-top: -4vh;
+}
+
+.logout-display {
+  margin-top: 10px;
+}
+
+.logout {
+  float: right;
+  margin-right: 10px;
+}

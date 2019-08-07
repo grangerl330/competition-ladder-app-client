@@ -6,10 +6,7 @@ import LadderForm from './LadderForm'
 import Profile from './Profile'
 
 class MainContent extends Component {
-  constructor(props){
-    super(props)
-  }
-
+  
   render(){
     return(
       <div className='main-content'>

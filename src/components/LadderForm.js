@@ -8,7 +8,6 @@ class LadderForm extends Component {
 
     this.state = {
       title: "",
-      size: "",
       user_id: props.currentUser.id
     }
   }

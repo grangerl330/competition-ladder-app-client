@@ -27,6 +27,8 @@ class LoginForm extends Component {
     const credentials = this.state
 
     this.props.login(credentials)
+
+    this.props.history.push('/ladders')
   }
 
   render(){

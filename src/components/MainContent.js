@@ -6,6 +6,9 @@ import LadderForm from './LadderForm'
 import Profile from './Profile'
 
 class MainContent extends Component {
+  constructor(props){
+    super(props)
+  }
 
   render(){
     return(
@@ -13,7 +16,7 @@ class MainContent extends Component {
         <Route exact path='/ladders' render={() => <LaddersList />}/>
         <Route exact path='/newladder' render={() => <LadderForm />}/>
         <Route exact path='/ladders/:ladderId' render={(urlData) => <Ladder ladderId={urlData.match.params.ladderId}/>}/>
-        <Route exact path='/profile' render={() => <Profile />}/>
+        <Route exact path='/profile' render={() => <Profile currentUser={this.props.currentUser}/>}/>
       </div>
     )
 

@@ -35,7 +35,6 @@ class App extends Component {
         this.props.history.push('/')
       } else {
         this.setState({currentUser: user})
-        this.props.history.push('/ladders')
       }
     })
   }
@@ -58,7 +57,6 @@ class App extends Component {
         this.props.history.push('/')
       } else {
         this.setState({currentUser: user})
-        this.props.history.push('/ladders')
       }
     })
   }

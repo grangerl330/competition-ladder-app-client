@@ -87,9 +87,9 @@ class LadderForm extends Component {
 
   addPlayerInput = (event) => {
     event.preventDefault()
-    var newPlayer = `player${this.state.numberOfPlayerInputs+1}`
+    var newPlayer = `spot${this.state.numberOfPlayerInputs+1}`
 
-    this.setState({[newPlayer]: ""})
+    this.setState({[newPlayer]: {name: "", id: ""}})
     this.setState({numberOfPlayerInputs: this.state.numberOfPlayerInputs + 1})
   }
 

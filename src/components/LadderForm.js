@@ -10,11 +10,27 @@ class LadderForm extends Component {
     this.state = {
       title: "",
       user_id: props.currentUser.id,
+      id: props.ladderId,
       numberOfPlayerInputs: 1,
-      player1: ""
+      spot1: {name: "", id: ""}
     }
   }
 
+  componentDidMount(){
+    if(this.props.ladderId){
+      fetch(`/ladders/${this.props.ladderId}`)
+      .then(response => response.json())
+      .then(ladder => {
+        this.setState({title: ladder.title, numberOfPlayerInputs: ladder.players.length})
+
+        var sortedPlayers = ladder.players.sort(function(a,b) {return a.ladder_spot - b.ladder_spot})
+        sortedPlayers.forEach((player, index) => {
+          var playerInfo = {name: player.first_name, id: player.id}
+          this.setState({[`spot${index+1}`]: playerInfo})
+        })
+      })
+    }
+  }
 
   handleOnChange = event => {
     const {name, value} = event.target
@@ -23,22 +39,45 @@ class LadderForm extends Component {
     })
   }
 
+  handleOnChangePlayer = event => {
+    const {name, value} = event.target
+    this.setState({
+      [name]: {name: value, id: this.state[name].id}
+    })
+  }
+
   handleOnSubmit = event => {
     event.preventDefault()
 
     const ladder = this.state
+    var url = ""
+    var request = ""
 
-    const request = {
-      method: 'POST',
-      body: JSON.stringify({
+    if(this.props.edit){
+      url = '/ladders/update'
+      request = {
+        method: 'PATCH',
+        body: JSON.stringify({
         ladder: ladder
       }),
-      headers: {
-        'Content-Type': 'application/json'
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      }
+    } else {
+      url = '/ladders'
+      request = {
+        method: 'POST',
+        body: JSON.stringify({
+          ladder: ladder
+        }),
+        headers: {
+          'Content-Type': 'application/json'
+        }
       }
     }
 
-    fetch('/ladders', request)
+    fetch(url, request)
     .then(response => response.json())
     .then(ladder => {
       console.log(ladder)
@@ -63,17 +102,26 @@ class LadderForm extends Component {
   renderPlayerInputs = () => {
     var number = this.state.numberOfPlayerInputs
     var renderedInputs = []
-
     for(var i=0; i < number; i++) {
-      renderedInputs.push(
-        <p key={i+1} >
-          <label>Player {i+1}:</label>
-          <input type="text" name={`player${i+1}`} value={this.state[`player${i+1}`]} onChange={this.handleOnChange}/>
-        </p>
-      )
+      if(this.state[`spot${i+1}`]){
+        renderedInputs.push(
+          <p key={i+1} >
+            <label>Position {i+1}:</label>
+            <input type="text" name={`spot${i+1}`} value={this.state[`spot${i+1}`].name || ''} onChange={this.handleOnChangePlayer}/>
+          </p>
+        )
+      }
     }
 
     return renderedInputs
+  }
+
+  renderTitle = () => {
+    if(this.props.edit){
+      return <h2>Edit {this.state.title}</h2>
+    } else {
+      return <h2>Add A New Ladder</h2>
+    }
   }
 
   render(){
@@ -82,7 +130,7 @@ class LadderForm extends Component {
         <NavLink className="close-window-button" to='/ladders'>
           <img src={closeWindow} alt="Close Window"/>
         </NavLink>
-        <h2>Add A New Ladder</h2>
+        {this.renderTitle()}
         <form onSubmit={this.handleOnSubmit}>
           <p>
             <label>Title:</label>
@@ -101,3 +149,5 @@ class LadderForm extends Component {
 }
 
 export default withRouter(LadderForm)
+
+// Figuring out edit handleOnSubmit vs add handleOnSubmit -> need a different fetch request - Look at tennis journal

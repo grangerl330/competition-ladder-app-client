@@ -6,7 +6,7 @@ const TopBar = (props) => {
   return (
     <div className="topbar">
       <div className="topbar-text">
-        Virtual Ladder App
+        Virtual Competition Ladder
       </div>
       <div className="username-display">
         <NavLink to='/profile' className="white-link">{props.currentUser.username}</NavLink>

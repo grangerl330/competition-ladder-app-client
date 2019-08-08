@@ -49,7 +49,7 @@ class Ladder extends Component {
   }
 
   onDragStart = (event, player) => {
-    console.log('dragstart:', player.first_name, player.last_name)
+    console.log('dragstart:', player.name)
     this.setState({
       draggedPlayer: player
     })
@@ -79,7 +79,7 @@ class Ladder extends Component {
     })
 
     this.renderLadderSpots()
-    console.log(this.state.ladderSpots[0].spot, this.state.ladderSpots[0].player.first_name, this.state.ladderSpots[1].spot, this.state.ladderSpots[1].player.first_name)
+    console.log(this.state.ladderSpots[0].spot, this.state.ladderSpots[0].player.name, this.state.ladderSpots[1].spot, this.state.ladderSpots[1].player.name)
 
     this.saveLadderInDatabase()
   }
@@ -88,7 +88,7 @@ class Ladder extends Component {
     const ladderSpotsHTML = this.state.ladderSpots.map(ladderSpot =>
       <div key={ladderSpot.player.id} className="ladder-spot" onDragOver={(e)=>this.onDragOver(e)} onDrop={(e)=>{this.onDrop(e, ladderSpot.player)}}>
         <div key={ladderSpot.player.id} className="ladder-player-display" draggable onDragStart={event => this.onDragStart(event, ladderSpot.player)}>
-          {ladderSpot.spot}. {ladderSpot.player.first_name} {ladderSpot.player.last_name}
+          {ladderSpot.spot}. {ladderSpot.player.name}
         </div>
       </div>
     )

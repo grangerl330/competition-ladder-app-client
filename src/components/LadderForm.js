@@ -25,7 +25,7 @@ class LadderForm extends Component {
 
         var sortedPlayers = ladder.players.sort(function(a,b) {return a.ladder_spot - b.ladder_spot})
         sortedPlayers.forEach((player, index) => {
-          var playerInfo = {name: player.first_name, id: player.id}
+          var playerInfo = {name: player.name, id: player.id}
           this.setState({[`spot${index+1}`]: playerInfo})
         })
       })

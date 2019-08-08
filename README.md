@@ -24,6 +24,10 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 The page will reload if you make edits.
 You will also see any lint errors in the console.
 
+*This will only start up the frontend server of the app. In order for the app to function, you must fork and clone the API portion of the app and follow the README instructions to start the backend server. This can be found at:*
+
+https://github.com/grangerl330/virtual-competition-ladder-api
+
 ## Code of Conduct
 
 Everyone interacting in the Virtual Competition Ladder project’s codebases, issue trackers, chat rooms and mailing lists are expected to follow the [Contributor Covenant](http://contributor-covenant.org) code of conduct.

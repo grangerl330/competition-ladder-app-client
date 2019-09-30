@@ -34,7 +34,6 @@ class LoginForm extends Component {
   render(){
     return (
       <div className="login-form">
-        <NavLink className="close-window-button" to='/'>x</NavLink>
         <h2>Login</h2>
         <form onSubmit={this.handleOnSubmit}>
           <p>
